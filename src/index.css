@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-white font-metro text-slate-800 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-extrabold lowercase tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-none ring-4 ring-cyan-300/70;
+  }
+}
+
+@layer components {
+  /* Glassy white panel with a bright border */
+  .panel {
+    @apply relative rounded-3xl border-2 border-white bg-white/75 shadow-[0_12px_40px_-14px_rgba(8,145,178,0.45)] backdrop-blur-md;
+  }
+  .panel-tight {
+    @apply relative rounded-2xl border-2 border-white bg-white/80 shadow-[0_8px_24px_-12px_rgba(8,145,178,0.4)] backdrop-blur-md;
+  }
+  /* Top-half gloss highlight for any rounded element */
+  .gloss {
+    @apply pointer-events-none absolute inset-x-[6%] top-[3%] h-1/2 rounded-[inherit] bg-gradient-to-b from-white/80 to-white/5;
+  }
+  .chip-label {
+    @apply text-[11px] font-bold uppercase tracking-[0.14em] text-slate-500;
+  }
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  }
+  .text-glow {
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* ---- glossy range slider ---- */
+.gel-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 14px;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, #e2e8f0, #f8fafc);
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.18);
+  outline: none;
+}
+.gel-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  border: 3px solid #fff;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #a3e635 19%, #4d7c0f 100%);
+  box-shadow: 0 3px 10px rgba(77, 124, 15, 0.5);
+  cursor: pointer;
+}
+.gel-range::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 3px solid #fff;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #a3e635 19%, #4d7c0f 100%);
+  box-shadow: 0 3px 10px rgba(77, 124, 15, 0.5);
+  cursor: pointer;
+}
+.gel-range.cyan::-webkit-slider-thumb {
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #22d3ee 19%, #0e7490 100%);
+  box-shadow: 0 3px 10px rgba(14, 116, 144, 0.5);
+}
+.gel-range.cyan::-moz-range-thumb {
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #22d3ee 19%, #0e7490 100%);
+}
+.gel-range.magenta::-webkit-slider-thumb {
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #e879f9 19%, #a21caf 100%);
+  box-shadow: 0 3px 10px rgba(162, 28, 175, 0.5);
+}
+.gel-range.magenta::-moz-range-thumb {
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #e879f9 19%, #a21caf 100%);
+}
+
+/* ---- the poker table felt ---- */
+.felt {
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 45%),
+    radial-gradient(ellipse at 50% 45%, #67e8f9 0%, #06b6d4 45%, #0e7490 100%);
+}
+.felt-rim {
+  background: linear-gradient(to bottom, #ffffff, #e0f2fe 55%, #bae6fd);
+}
+
+/* ---- card back pattern ---- */
+.card-back {
+  background-color: #0ea5e9;
+  background-image:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.45) 0 14%, transparent 15%),
+    radial-gradient(circle at 75% 70%, rgba(217, 70, 239, 0.55) 0 18%, transparent 19%),
+    radial-gradient(circle at 70% 20%, rgba(163, 230, 53, 0.6) 0 10%, transparent 11%),
+    linear-gradient(160deg, #22d3ee 0%, #0284c7 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
